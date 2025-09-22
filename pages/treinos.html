@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitLife - Academia & Bem-estar | Seu Parceiro em Resultados</title>
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/2936/2936886.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!--Sem javascript por enquanto, só lá embaixo-->
+</head>
+<body> <!--Navelinks-->
+    <nav class="navbar">
+        <div class="logo">
+            <h1>FitLife</h1>
+            <img src="../assets/favicon.png" alt="imagem da logo" class="fit-life-logo">
+        </div>
+        <div class="nav-links">
+            <a href="../index.html">Início</a> <!--Alguma coisa no js está deixando o "inicio" em laranja sempre, tenho que ajustar depois-->
+            <a href="#treinos">Treinos</a>
+            <a href="nutricao.html">Nutrição</a>
+            <a href="#suplementacao">Suplementação</a>
+            <a href="#calculadora">Calculadoras</a>
+            <a href="#artigos">Artigos</a>
+        </div>
+        <div class="menu-mobile">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+
+ <section id="treinos" class="section">
+        <h2>Tabela de Treinos</h2>
+        <div class="weekly-workouts">
+            <div class="workout-day">
+                <h3>Segunda-feira</h3>
+                <h4>Peito e Tríceps</h4>
+                <ul>
+                    <li>Supino Reto (4x12)</li>
+                    <li>Supino Inclinado (4x12)</li>
+                    <li>Crucifixo (3x15)</li>
+                    <li>Extensão de Tríceps (4x12)</li>
+                    <li>Corda na Polia (3x15)</li>
+                    <li>Extensão Testa (3x12)</li>
+                </ul>
+            </div>
+            <div class="workout-day">
+                <h3>Terça-feira</h3>
+                <h4>Costas e Bíceps</h4>
+                <ul>
+                    <li>Puxada Frontal (4x12)</li>
+                    <li>Remada Baixa (4x12)</li>
+                    <li>Pulldown (3x15)</li>
+                    <li>Rosca Direta (4x12)</li>
+                    <li>Rosca Martelo (3x15)</li>
+                    <li>Rosca Scott (3x12)</li>
+                </ul>
+            </div>
+            <div class="workout-day">
+                <h3>Quarta-feira</h3>
+                <h4>Pernas</h4>
+                <ul>
+                    <li>Agachamento (4x12)</li>
+                    <li>Leg Press (4x15)</li>
+                    <li>Cadeira Extensora (4x15)</li>
+                    <li>Mesa Flexora (4x12)</li>
+                    <li>Panturrilha (4x20)</li>
+                    <li>Stiff (3x12)</li>
+                </ul>
+            </div>
+            <div class="workout-day">
+                <h3>Quinta-feira</h3>
+                <h4>Ombro e Abdômen</h4>
+                <ul>
+                    <li>Desenvolvimento (4x12)</li>
+                    <li>Elevação Lateral (4x12)</li>
+                    <li>Elevação Frontal (3x15)</li>
+                    <li>Abdominal Supra (4x25)</li>
+                    <li>Prancha (4x45s)</li>
+                    <li>Infra (3x20)</li>
+                </ul>
+            </div>
+            <div class="workout-day">
+                <h3>Sexta-feira</h3>
+                <h4>Full Body</h4>
+                <ul>
+                    <li>Supino Reto (3x12)</li>
+                    <li>Puxada Frontal (3x12)</li>
+                    <li>Agachamento (3x15)</li>
+                    <li>Desenvolvimento (3x12)</li>
+                    <li>Rosca Alternada (3x12)</li>
+                    <li>Tríceps Corda (3x15)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="workout-planner">
+            <div class="workout-controls">
+                <button id="addExercise" class="action-button">
+                    <i class="fas fa-plus"></i> Adicionar Exercício
+                </button>
+            </div>
+            <div class="workout-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Exercício</th>
+                            <th>Séries</th>
+                            <th>Repetições</th>
+                            <th>Carga (kg)</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="workoutList">
+                        <!-- Exercícios serão adicionados aqui via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+<section class="treino-section">
+    <h2>Escolha o Seu Tipo de Treino</h2>
+    <form class="treino-form">
+        <div>
+            <label for="tipoTreino">Tipo de Treino:</label>
+            <select id="tipoTreino">
+                <option>Força</option>
+                <option>Cardio</option>
+                <option>Funcional</option>
+                <option>Flexibilidade</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="objetivo">Objetivo:</label>
+            <select id="objetivo">
+                <option>Emagrecimento</option>
+                <option>Hipertrofia</option>
+                <option>Condicionamento</option>
+                <option>Saúde</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="equipamento">Equipamento:</label>
+            <select id="equipamento">
+                <option>Sem Equipamento</option>
+                <option>Com Halteres</option>
+                <option>Com Elásticos</option>
+                <option>Na Academia</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="tempoTreino">Tempo de Treino:</label>
+            <select id="tempoTreino">
+                <option>10 Minutos</option>
+                <option>20-30 Minutos</option>
+                <option>Mais de 40 Minutos</option>
+            </select>
+        </div>
+        <button type="button" id="mostrarTreinosBtn">Mostrar Treinos</button>
+    </form>
+</section>
+    <div class="container">
+        <h3>Roleta de Treino</h3>
+    <div class="roleta">
+        <p id="resultado">Clique para girar a roleta!</p>
+        <button onclick="sortearTreino()">🎯 Girar</button>
+    </div>
+  </div>
+        <section>
+            <h4 id="Descanso">Dica de Saúde e Motivação</h4>
+            <p id="textoDica">Clique no botão para receber uma dica!</p>
+        <button id="botaoDica">Nova Dica</button>
+        </section>
+
+<!--Seção de dicas em vídeos-->
+<section class="video-section">
+  <h2>Dicas em Vídeo</h2>
+  <div class="video-grid">
+
+    <div class="video-card">
+      <h3 class="video-title">Treino para Iniciantes</h3>
+      <div class="video-wrapper">
+        <!--iframe aqui--> <iframe src="https://www.youtube.com/embed/0T15hFEvwyY?si=-lQHCtRXMri_OFRQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"allowfullscreen></iframe>
+      </div>
+      <p>Aprenda os fundamentos para começar sua jornada fitness.</p>
+    </div>
+
+    <div class="video-card">
+      <h3 class="video-title">Dicas de Alimentação</h3>
+      <div class="video-wrapper">
+          <!--iframe aqui--> <iframe src="https://www.youtube.com/embed/YKJpXYk8fIE" title="Dicas de Alimentação" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <p>Saiba como manter uma dieta equilibrada para melhores resultados.</p>
+    </div>
+
+    <div class="video-card">
+      <h3 class="video-title">Exercícios em Casa</h3>
+      <div class="video-wrapper">
+          <!--iframe aqui--> <iframe src="https://www.youtube.com/embed/F8bENjRTo0U" title="Exercícios em Casa" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <p>Treine sem equipamentos no conforto do seu lar.</p>
+    </div>
+
+  </div>
+</section>
+<!--Seção de dicas em vídeos-->
+
+<!--Timer de descanso-->
+
+<div class="timer-wrapper">
+  <div class="timer-container">
+    <h2>Timer de Descanso</h2>
+    
+    <select id="timeSelector">
+      <option value="30">30 segundos</option>
+      <option value="60">1 minuto</option>
+      <option value="120">2 minutos</option>
+      <option value="180">3 minutos</option>
+      <option value="300">5 minutos</option>
+    </select>
+
+    <div class="time-display" id="time">00:30</div>
+
+    <div class="buttons">
+      <button id="startBtn">Iniciar</button>
+      <button id="pauseBtn">Parar</button>
+      <button id="resetBtn">Resetar</button>
+    </div>
+
+    <div id="finished" class="finished"></div>
+  </div>
+</div>
+</div>
+
+    <div id="finished" class="finished"></div>
+  </div>
+
+
+
+      <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>FitLife</h3>
+                <p>Excelência em resultados desde Março de 2025</p>
+            </div>
+            <div class="footer-section">
+                <h5>Navegação</h5>
+                <a href="#home">Início</a>
+                <a href="#dieta">Nutrição</a>
+                <a href="#suplementacao">Suplementação</a>
+                <a href="#calculadora">Calculadoras</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contato</h4>
+                <p><i class="fas fa-phone"></i> (11) 9999-9999</p>
+                <p><i class="fas fa-envelope"></i> contato@fitlife.com.br</p>
+                <p><i class="fas fa-map-marker-alt"></i> São Paulo, SP</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 FitLife. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+        <script>
+document.getElementById("addExercise").addEventListener("click", () => {
+    const tabela = document.getElementById("workoutList");
+
+    const novaLinha = document.createElement("tr");
+
+    novaLinha.innerHTML = `
+        <td><input type="text" placeholder="Nome do exercício" required></td>
+        <td><input type="number" min="1" placeholder="Séries" required></td>
+        <td><input type="number" min="1" placeholder="Repetições" required></td>
+        <td><input type="number" min="0" placeholder="Carga (kg)"></td>
+        <td><button onclick="removerLinha(this)">Remover</button></td>
+    `;
+
+    tabela.appendChild(novaLinha);
+});
+
+function removerLinha(botao) {
+    const linha = botao.closest("tr");
+    linha.remove();
+}
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const mostrarTreinosBtn = document.getElementById('mostrarTreinosBtn');
+    
+    mostrarTreinosBtn.addEventListener('click', function() {
+        // Obter valores selecionados
+        const tipoTreino = document.getElementById('tipoTreino').value;
+        const objetivo = document.getElementById('objetivo').value;
+        const equipamento = document.getElementById('equipamento').value;
+        const tempoTreino = document.getElementById('tempoTreino').value;
+        
+        // Gerar treino com base nas seleções
+        const treinoRecomendado = gerarTreino(tipoTreino, objetivo, equipamento, tempoTreino);
+        
+        // Exibir o treino recomendado
+        exibirTreino(treinoRecomendado);
+    });
+});
+
+// Base de dados de treinos (armazenada no JS)
+const treinosDB = {
+    // Treinos de Força
+    "Força": {
+        "Emagrecimento": {
+            "Sem Equipamento": {
+                "10 Minutos": [
+                    "Agachamento: 3 séries de 15 repetições",
+                    "Flexão de braço: 3 séries de 10 repetições",
+                    "Prancha abdominal: 3 séries de 30 segundos"
+                ],
+                "20-30 Minutos": [
+                    "Agachamento: 4 séries de 15 repetições",
+                    "Flexão de braço: 4 séries de 12 repetições",
+                    "Avanço: 3 séries de 10 repetições por perna",
+                    "Prancha abdominal: 3 séries de 45 segundos",
+                    "Burpee: 3 séries de 8 repetições"
+                ],
+                "Mais de 40 Minutos": [
+                    "Agachamento: 5 séries de 15 repetições",
+                    "Flexão de braço: 5 séries de 12 repetições",
+                    "Avanço: 4 séries de 12 repetições por perna",
+                    "Prancha abdominal: 4 séries de 1 minuto",
+                    "Burpee: 4 séries de 10 repetições",
+                    "Flexão diamante: 3 séries de 8 repetições",
+                    "Prancha lateral: 3 séries de 30 segundos cada lado"
+                ]
+            },
+            "Com Halteres": {
+                // ... outros treinos com halteres
+            }
+            // ... outros equipamentos
+        },
+        "Hipertrofia": {
+            // ... treinos para hipertrofia
+        }
+        // ... outros objetivos
+    },
+    // Treinos de Cardio
+    "Cardio": {
+        "Emagrecimento": {
+            "Sem Equipamento": {
+                "10 Minutos": [
+                    "Polichinelo: 45 segundos / Descanso: 15 segundos (repetir 5x)",
+                    "Corrida estacionária: 1 minuto / Descanso: 30 segundos (repetir 3x)"
+                ],
+                "20-30 Minutos": [
+                    "Polichinelo: 1 minuto / Descanso: 30 segundos (repetir 5x)",
+                    "Corrida estacionária: 1 minuto / Descanso: 30 segundos (repetir 5x)",
+                    "Burpee: 30 segundos / Descanso: 30 segundos (repetir 5x)",
+                    "Escalador: 1 minuto / Descanso: 30 segundos (repetir 3x)"
+                ]
+            }
+        }
+    }
+    // ... outros tipos de treino
+};
+
+function gerarTreino(tipo, objetivo, equipamento, tempo) {
+    try {
+        // Tentar encontrar um treino específico
+        if (treinosDB[tipo] && 
+            treinosDB[tipo][objetivo] && 
+            treinosDB[tipo][objetivo][equipamento] && 
+            treinosDB[tipo][objetivo][equipamento][tempo]) {
+            return {
+                tipo: tipo,
+                objetivo: objetivo,
+                equipamento: equipamento,
+                tempo: tempo,
+                exercicios: treinosDB[tipo][objetivo][equipamento][tempo],
+                personalizado: false
+            };
+        }
+        
+        // Se não encontrar, gerar um treino genérico
+        return gerarTreinoGenerico(tipo, objetivo, equipamento, tempo);
+    } catch (e) {
+        console.error("Erro ao gerar treino:", e);
+        return gerarTreinoGenerico(tipo, objetivo, equipamento, tempo);
+    }
+}
+
+function gerarTreinoGenerico(tipo, objetivo, equipamento, tempo) {
+    const exerciciosBase = {
+        "Força": [
+            "Agachamento",
+            "Flexão de braço",
+            "Avanço",
+            "Prancha abdominal",
+            "Burpee"
+        ],
+        "Cardio": [
+            "Polichinelo",
+            "Corrida estacionária",
+            "Burpee",
+            "Escalador",
+            "Pular corda (simulado)"
+        ],
+        "Funcional": [
+            "Agachamento com salto",
+            "Flexão de braço",
+            "Avanço com rotação",
+            "Prancha com elevação de perna",
+            "Burpee"
+        ],
+        "Flexibilidade": [
+            "Alongamento de posterior de coxa",
+            "Alongamento de peitoral",
+            "Alongamento de quadríceps",
+            "Alongamento de panturrilha",
+            "Torção espinhal"
+        ]
+    };
+    
+    // Determinar quantidade de exercícios com base no tempo
+    let qtdExercicios;
+    if (tempo === "10 Minutos") qtdExercicios = 3;
+    else if (tempo === "20-30 Minutos") qtdExercicios = 5;
+    else qtdExercicios = 7;
+    
+    // Selecionar exercícios aleatórios
+    const exerciciosSelecionados = [];
+    const base = exerciciosBase[tipo] || exerciciosBase["Força"];
+    
+    for (let i = 0; i < Math.min(qtdExercicios, base.length); i++) {
+        exerciciosSelecionados.push(`${base[i]}: 3-4 séries`);
+    }
+    
+    return {
+        tipo: tipo,
+        objetivo: objetivo,
+        equipamento: equipamento,
+        tempo: tempo,
+        exercicios: exerciciosSelecionados,
+        personalizado: true
+    };
+}
+
+function exibirTreino(treino) {
+    // Criar elemento de exibição se não existir
+    let treinoContainer = document.querySelector('.treino-resultado');
+    
+    if (!treinoContainer) {
+        treinoContainer = document.createElement('div');
+        treinoContainer.className = 'treino-resultado';
+        document.querySelector('.treino-section').appendChild(treinoContainer);
+    }
+    
+    // Construir HTML do treino
+    let html = `
+        <h3>Treino Recomendado</h3>
+        <p><strong>Tipo:</strong> ${treino.tipo}</p>
+        <p><strong>Objetivo:</strong> ${treino.objetivo}</p>
+        <p><strong>Equipamento:</strong> ${treino.equipamento}</p>
+        <p><strong>Duração:</strong> ${treino.tempo}</p>
+    `;      
+    
+    treino.exercicios.forEach(exercicio => {
+        html += `<li>${exercicio}</li>`;
+    });
+    
+    html += `</ul>`;
+    
+    treinoContainer.innerHTML = html;
+}
+
+
+// de hoje
+const treinos = [
+  "20 agachamentos + 20 abdominais",
+  "30 segundos de prancha + 15 flexões",
+  "3x 15 polichinelos",
+  "10 burpees + 20 mountain climbers",
+  "Corrida estacionária 1 min + 20 agachamentos",
+  "4x 10 saltos com agachamento",
+  "3 séries de prancha lateral (30s cada lado)",
+  "15 afundos por perna",
+  "3x 20 abdominais bicicleta",
+  "2 minutos de corrida + 20 saltos"
+];
+
+function sortearTreino() {
+  const indice = Math.floor(Math.random() * treinos.length);
+  const treinoSorteado = treinos[indice];
+  document.getElementById('resultado').textContent = treinoSorteado;
+}
+// de agora
+const dicas = [
+  "Beba ao menos 2 litros de água por dia.",
+  "Durma bem — seu corpo se reconstrói enquanto você descansa.",
+  "Alimente-se com consciência: seu corpo é seu templo.",
+  "Mantenha uma boa postura, até sua confiança melhora.",
+  "A disciplina constrói o corpo, a mente e o futuro.",
+  "Você não precisa estar motivado, apenas comprometido.",            // colocar mais coisas aqui depois 
+  "Hoje é o melhor dia para começar.",
+  "Não espere resultados diferentes fazendo sempre o mesmo.",
+  "Seu maior concorrente é você mesmo de ontem.",
+  "Seja constante, mesmo nos dias difíceis.",
+  "Cuidar do seu corpo é um ato de amor próprio.",
+  "Não existe progresso sem esforço.",
+  "Pequenas vitórias diárias criam grandes mudanças.",
+  "A força de vontade se treina, como um músculo.",
+  "Levante-se agora e honre quem você quer se tornar.",
+  "Você não precisa ser o melhor, só precisa começar.",
+  "Todo treino conta, mesmo os mais curtos.",
+  "Você é mais forte do que imagina.",
+  "Persista. A versão mais forte de você te espera.",
+  "Comece pequeno, sonhe grande, aja agora."
+];
+
+const botao = document.getElementById("botaoDica");
+const paragrafo = document.getElementById("textoDica");
+
+botao.addEventListener("click", () => {
+  const indice = Math.floor(Math.random() * dicas.length);
+  paragrafo.textContent = dicas[indice];
+});
+ 
+ // de hoje, timer de descanso entre series 
+
+ 
+ let timer;
+    let remainingTime = 30;
+    let isRunning = false;
+
+    const timeDisplay = document.getElementById("time");
+    const timeSelector = document.getElementById("timeSelector");
+    const finishedText = document.getElementById("finished");
+
+    function updateDisplay(seconds) {
+      const min = String(Math.floor(seconds / 60)).padStart(2, '0');
+      const sec = String(seconds % 60).padStart(2, '0');
+      timeDisplay.textContent = `${min}:${sec}`;
+    }
+
+    timeSelector.addEventListener("change", () => {
+      remainingTime = parseInt(timeSelector.value);
+      updateDisplay(remainingTime);
+      finishedText.textContent = "";
+      clearInterval(timer);
+      isRunning = false;
+    });
+
+    document.getElementById("startBtn").addEventListener("click", () => {
+      if (isRunning) return;
+      isRunning = true;
+      finishedText.textContent = "";
+      timer = setInterval(() => {
+        if (remainingTime > 0) {
+          remainingTime--;
+          updateDisplay(remainingTime);
+        } else {
+          clearInterval(timer);
+          isRunning = false;
+          finishedText.textContent = "⏰ Tempo Finalizado!";
+        }
+      }, 1000);
+    });
+
+    document.getElementById("pauseBtn").addEventListener("click", () => {
+      clearInterval(timer);
+      isRunning = false;
+    });
+
+    document.getElementById("resetBtn").addEventListener("click", () => {
+      clearInterval(timer);
+      remainingTime = parseInt(timeSelector.value);
+      updateDisplay(remainingTime);
+      isRunning = false;
+      finishedText.textContent = "";
+    });
+
+    // Inicializa com 30s
+    updateDisplay(remainingTime);
+</script>
+</body>
+</html>

@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitLife - Academia & Bem-estar | Seu Parceiro em Resultados</title>
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/2936/2936886.png" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <h1>FitLife</h1>
+            <img src="../assets/favicon.png" alt="imagem da logo" class="fit-life-logo">
+        </div>
+        <div class="nav-links">
+            <a href="../index.html">Início</a> <!--Alguma coisa no js está deixando o "inicio" em laranja sempre, tenho que ajustar depois-->
+            <a href="../pages/treinos.html">Treinos</a>
+            <a href="#nutricao">Nutrição</a>
+            <a href="#suplementacao">Suplementação</a>
+            <a href="#calculadora">Calculadoras</a>
+            <a href="#artigos">Artigos</a>
+        </div>
+        <div class="menu-mobile">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+    <section id="dieta" class="section"> 
+    <h2>Rastreamento de Dieta</h2>
+    <div class="diet-tracker">
+        <div class="macro-summary">
+            <div class="macro-card">
+                <h3>Calorias</h3>
+                <p id="totalCalorias">0</p>
+            </div>
+            <div class="macro-card">
+                <h3>Proteínas</h3>
+                <p id="totalProteinas">0g</p>
+            </div>
+            <div class="macro-card">
+                <h3>Carboidratos</h3>
+                <p id="totalCarboidratos">0g</p>
+            </div>
+            <div class="macro-card">
+                <h3>Gorduras</h3>
+                <p id="totalGorduras">0g</p>
+            </div>
+        </div>
+        <div class="food-input">
+            <input type="text" id="foodName" placeholder="Nome do alimento" required>
+            <input type="number" id="calories" placeholder="Calorias" min="0" step="1">
+            <input type="number" id="proteins" placeholder="Proteínas (g)" min="0" step="0.1">
+            <input type="number" id="carbs" placeholder="Carboidratos (g)" min="0" step="0.1">
+            <input type="number" id="fats" placeholder="Gorduras (g)" min="0" step="0.1">
+
+            <button id="addFood" class="action-button">Adicionar Alimento</button>
+        </div>
+        <div class="food-list" id="foodList">
+        </div>
+    </div>
+</section>
+
+    <div class="container">
+        <h2>Dicas de Nutrição</h2>
+        <div class="dica-box" id="dica">Clique no botão para ver uma dica</div>
+    <button onclick="mostrarDica()">Mostrar Dica</button>
+  </div>
+
+  <div class="semaforo-nutricional">
+        <h1 class="titulo-nutricional">Semáforo Nutricional</h1>
+        
+        <div class="categorias-alimentos">
+
+            <div class="categoria-alimento categoria-verde">
+                <h2 class="titulo-categoria">Verde: Coma à vontade</h2>
+                <ul class="lista-alimentos" id="alimentos-verdes">
+                </ul>
+            </div>
+
+            <div class="categoria-alimento categoria-amarela">
+                <h2 class="titulo-categoria">Amarelo: Consuma com moderação</h2>
+                <ul class="lista-alimentos" id="alimentos-amarelos">
+                </ul>
+            </div>
+
+            <div class="categoria-alimento categoria-vermelha">
+                <h2 class="titulo-categoria">Vermelho: Evite ou consuma raramente</h2>
+                <ul class="lista-alimentos" id="alimentos-vermelhos">
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--Semáforo interativo -->
+        <div class="semaforo-interativo">
+            <h2>Clique no semáforo para sortear um alimento</h2>
+            <div class="luzes-semaforo">
+                <div class="luz luz-vermelha" onclick="sortearAlimento('vermelho')"></div>
+                <div class="luz luz-amarela" onclick="sortearAlimento('amarelo')"></div>
+                <div class="luz luz-verde" onclick="sortearAlimento('verde')"></div>
+            </div>
+            <div class="resultado-semaforo" id="resultado-semaforo">
+                Clique em uma luz para sortear um alimento
+            </div>
+        </div>
+    </div>
+
+    <div class="water-calculator-container">
+        <h2>Calculadora de Água Diária</h2>
+        <p>Descubra quanta água você deve beber por dia:</p>
+        
+        <div class="calculator-input">
+            <label for="weight">Seu peso (kg):</label>
+            <input type="number" id="weight" placeholder="Ex: 70" min="30" max="200">
+            <button id="calculate-btn">Calcular</button>
+        </div>
+        
+        <div class="calculator-result" id="result">
+            <p>Digite seu peso para calcular</p>
+        </div>
+        
+        <div class="water-info">
+            <p>Lembre-se: A recomendação é de 35ml de água por kg de peso corporal.</p>
+        </div>
+    </div>
+
+    <!--de hoje! 05/08-->
+     <!--Tabela de Substituições -> lista mostrando trocas saudáveis -->
+    <section class="substitution-section">
+<h2>Tabela de Substituições Saudáveis</h2>
+        
+<table class="substitution-table">
+    <thead>
+        <tr>
+            <th>Alimento Não Saudável</th>
+            <th>Substituição Saudável</th>
+            <th>Benefícios</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="bad-food"><i class="fas fa-times-circle health-icon"></i> Refrigerante</td>
+            <td class="good-food"><i class="fas fa-check-circle health-icon"></i> Água com gás + limão ou suco natural</td>
+            <td><i class="fas fa-heart health-icon"></i> Reduz açúcar, hidrata sem calorias vazias</td>
+        </tr>
+        <tr>
+            <td class="bad-food"><i class="fas fa-times-circle health-icon"></i> Pão branco</td>
+            <td class="good-food"><i class="fas fa-check-circle health-icon"></i> Pão integral ou de grãos</td>
+            <td><i class="fas fa-heart health-icon"></i> Mais fibras, nutrientes e saciedade</td>
+        </tr>
+        <tr>
+            <td class="bad-food"><i class="fas fa-times-circle health-icon"></i> Batata frita</td>
+            <td class="good-food"><i class="fas fa-check-circle health-icon"></i> Batata-doce assada</td>
+            <td><i class="fas fa-heart health-icon"></i> Menos gordura, mais vitaminas e fibras</td>
+        </tr>
+        <tr>
+            <td class="bad-food"><i class="fas fa-times-circle health-icon"></i> Açúcar refinado</td>
+            <td class="good-food"><i class="fas fa-check-circle health-icon"></i> Mel ou tâmaras</td>
+            <td><i class="fas fa-heart health-icon"></i> Adoça naturalmente com mais nutrientes</td>
+        </tr>
+        <tr>
+            <td class="bad-food"><i class="fas fa-times-circle health-icon"></i> Salgadinhos industrializados</td>
+            <td class="good-food"><i class="fas fa-check-circle health-icon"></i> Castanhas ou pipoca caseira</td>
+            <td><i class="fas fa-heart health-icon"></i> Gorduras boas, proteínas e menos sódio</td>
+        </tr> 
+                <tr>
+                    <td class="bad-food"><i class="fas fa-times-circle health-icon"></i> Sorvete industrializado</td>
+                    <td class="good-food"><i class="fas fa-check-circle health-icon"></i> Sorvete de banana congelada</td>
+                    <td><i class="fas fa-heart health-icon"></i> Sem aditivos, naturalmente doce</td>
+                </tr>
+                <tr>
+                    <td class="bad-food"><i class="fas fa-times-circle health-icon"></i> Cereal açucarado</td>
+                    <td class="good-food"><i class="fas fa-check-circle health-icon"></i> Aveia com frutas</td>
+                    <td><i class="fas fa-heart health-icon"></i> Mais fibras, menos açúcar, energia prolongada</td>
+                </tr>
+                <tr>
+                    <td class="bad-food"><i class="fas fa-times-circle health-icon"></i> Margarina</td>
+                    <td class="good-food"><i class="fas fa-check-circle health-icon"></i> Abacate amassado ou azeite</td>
+                    <td><i class="fas fa-heart health-icon"></i> Gorduras saudáveis, sem gordura trans</td>
+                </tr>
+                <tr>
+                    <td class="bad-food"><i class="fas fa-times-circle health-icon"></i> Leite integral</td>
+                    <td class="good-food"><i class="fas fa-check-circle health-icon"></i> Leite vegetal (amêndoa, aveia)</td>
+                    <td><i class="fas fa-heart health-icon"></i> Menos gordura saturada, opção para intolerantes</td>
+                </tr>
+                <tr>
+                    <td class="bad-food"><i class="fas fa-times-circle health-icon"></i> Carne processada (salsicha, linguiça)</td>
+                    <td class="good-food"><i class="fas fa-check-circle health-icon"></i> Peixe grelhado ou tofu</td>
+                    <td><i class="fas fa-heart health-icon"></i> Menos sódio e conservantes, mais proteína magra</td>
+                </tr>
+                <tr>
+                    <td class="bad-food"><i class="fas fa-times-circle health-icon"></i> Farinha branca</td>
+                    <td class="good-food"><i class="fas fa-check-circle health-icon"></i> Farinha integral ou de amêndoa</td>
+                    <td><i class="fas fa-heart health-icon"></i> Mais nutrientes e fibras, menos processada</td>
+                </tr>
+                <tr>
+                    <td class="bad-food"><i class="fas fa-times-circle health-icon"></i> Chocolate ao leite</td>
+                    <td class="good-food"><i class="fas fa-check-circle health-icon"></i> Chocolate amargo 70%+</td>
+                    <td><i class="fas fa-heart health-icon"></i> Menos açúcar, mais antioxidantes</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="substitution-info">
+            <h3><i class="fas fa-lightbulb health-icon"></i> Dicas para substituições inteligentes</h3>
+            <p>Substituir alimentos processados por opções mais naturais pode trazer diversos benefícios para a saúde, como melhor controle do peso, mais energia ao longo do dia e redução do risco de doenças crônicas. Comece fazendo pequenas trocas no seu dia a dia e observe como seu corpo responde. Lembre-se que mudanças graduais tendem a ser mais sustentáveis a longo prazo.</p>
+            <p>Adicionamos ícones para facilitar a identificação: <i class="fas fa-times-circle" style="color: #F44336;"></i> para alimentos não saudáveis, <i class="fas fa-check-circle" style="color: #4CAF50;"></i> para as substituições saudáveis e <i class="fas fa-heart" style="color: #FF6B00;"></i> para os benefícios.</p>
+        </div>
+    </section>
+    
+    <!--De hoje! 06/08-->
+    <!--cards fixos com alimentos saudáveis-->
+      <section class="nutritious-foods">
+        <h2>Alimentos Ricos em Nutrientes Essenciais</h2>
+        
+        <div class="nutrient-tabs">
+            <button class="nutrient-tab active" data-nutrient="protein">Proteínas</button>
+            <button class="nutrient-tab" data-nutrient="fiber">Fibras</button>
+            <button class="nutrient-tab" data-nutrient="vitamin-c">Vitamina C</button>
+        </div>
+        
+        <div class="food-cards-container">
+            <!-- Cards de Alimentos Ricos em Proteínas -->
+            <div class="food-card active" data-nutrient="protein">
+                <div class="food-image">
+                    <img src="https://images.unsplash.com/photo-1498654077810-12c21d4d6dc3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Ovos">
+                </div>
+                <div class="food-content">
+                    <h3>Ovos</h3>
+                    <div class="nutrient-info">
+                        <div class="nutrient-value">
+                            <span>13g</span>
+                            <label>Proteína/100g</label>
+                        </div>
+                        <div class="nutrient-value">
+                            <span>155</span>
+                            <label>Calorias</label>
+                        </div>
+                        <div class="nutrient-value">
+                            <span>1.1g</span>
+                            <label>Fibras</label>
+                        </div>
+                    </div>
+                    <div class="food-benefits">
+                        <h4>Benefícios:</h4>
+                        <ul>
+                            <li>Fonte completa de proteínas</li>
+                            <li>Rico em vitaminas B12 e D</li>
+                            <li>Contém colina para saúde cerebral</li>
+                            <li>Promove saciedade</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="food-card" data-nutrient="protein">
+                <div class="food-image">
+                    <img src="https://images.unsplash.com/photo-1660808600062-defd9cc275d3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Peito de Frango">
+                </div>
+                <div class="food-content">
+                    <h3>Peito de Frango</h3>
+                    <div class="nutrient-info">
+                        <div class="nutrient-value">
+                            <span>31g</span>
+                            <label>Proteína/100g</label>
+                        </div>
+                        <div class="nutrient-value">
+                            <span>165</span>
+                            <label>Calorias</label>
+                        </div>
+                        <div class="nutrient-value">
+                            <span>0g</span>
+                            <label>Fibras</label>
+                        </div>
+                    </div>
+                    <div class="food-benefits">
+                        <h4>Benefícios:</h4>
+                        <ul>
+                            <li>Baixo teor de gordura</li>
+                            <li>Fonte de vitaminas B6 e B3</li>
+                            <li>Versátil na preparação</li>
+                            <li>Ajuda na construção muscular</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="food-card" data-nutrient="protein">
+                <div class="food-image">
+                    <img src="https://images.unsplash.com/photo-1590616270818-f08142f85c6b?q=80&w=686&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Quinoa">
+                </div>
+                <div class="food-content">
+                    <h3>Quinoa</h3>
+                    <div class="nutrient-info">
+                        <div class="nutrient-value">
+                            <span>4.1g</span>
+                            <label>Proteína/100g</label>
+                        </div>
+                        <div class="nutrient-value">
+                            <span>120</span>
+                            <label>Calorias</label>
+                        </div>
+                        <div class="nutrient-value">
+                            <span>2.8g</span>
+                            <label>Fibras</label>
+                        </div>
+                    </div>
+                    <div class="food-benefits">
+                        <h4>Benefícios:</h4>
+                        <ul>
+                            <li>Proteína vegetal completa</li>
+                            <li>Sem glúten</li>
+                            <li>Rica em ferro e magnésio</li>
+                            <li>Boa fonte de antioxidantes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="food-card" data-nutrient="protein">
+                <div class="food-image">
+                    <img src="https://plus.unsplash.com/premium_photo-1663840135802-c672cc74b97c?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Iogurte Grego">
+                </div>
+                <div class="food-content">
+                    <h3>Iogurte Grego</h3>
+                    <div class="nutrient-info">
+                        <div class="nutrient-value">
+                            <span>10g</span>
+                            <label>Proteína/100g</label>
+                        </div>
+                        <div class="nutrient-value">
+                            <span>59</span>
+                            <label>Calorias</label>
+                        </div>
+                        <div class="nutrient-value">
+                            <span>0g</span>
+                            <label>Fibras</label>
+                        </div>
+                    </div>
+                    <div class="food-benefits">
+                        <h4>Benefícios:</h4>
+                        <ul>
+                            <li>Fonte de probióticos</li>
+                            <li>Rico em cálcio</li>
+                            <li>Baixo teor de lactose</li>
+                            <li>Auxilia na saúde intestinal</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="food-card" data-nutrient="protein">
+                <div class="food-image">
+                    <img src="https://images.unsplash.com/photo-1552585960-0e1069ce7405?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Lentilhas">
+                </div>
+                <div class="food-content">
+                    <h3>Lentilhas</h3>
+                    <div class="nutrient-info">
+                        <div class="nutrient-value">
+                            <span>9g</span>
+                            <label>Proteína/100g</label>
+                        </div>
+                        <div class="nutrient-value">
+                            <span>116</span>
+                            <label>Calorias</label>
+                        </div>
+                        <div class="nutrient-value">
+                            <span>7.9g</span>
+                            <label>Fibras</label>
+                        </div>
+                    </div>
+                    <div class="food-benefits">
+                        <h4>Benefícios:</h4>
+                        <ul>
+                            <li>Fonte de proteína vegetal</li>
+                            <li>Rica em ferro e folato</li>
+                            <li>Baixo índice glicêmico</li>
+                            <li>Promove saúde cardiovascular</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Cards de Alimentos Ricos em Fibras -->
+            <div class="food-card" data-nutrient="fiber">
+                <div class="food-image">
+                    <img src="https://images.unsplash.com/photo-1586810504230-09dab6b8e01b?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Aveia">
+                </div>
+                <div class="food-content">
+                    <h3>Aveia</h3>
+                    <div class="nutrient-info">
+                        <div class="nutrient-value">
+                            <span>10.6g</span>
+                            <label>Fibras/100g</label>
+                        </div>
+                        <div class="nutrient-value">
+                            <span>389</span>
+                            <label>Calorias</label>
+                        </div>
+                        <div class="nutrient-value">
+                            <span>17g</span>
+                            <label>Proteína</label>
+                        </div>
+                    </div>
+                    <div class="food-benefits">
+                        <h4>Benefícios:</h4>
+                        <ul>
+                            <li>Rica em beta-glucana</li>
+                            <li>Reduz colesterol</li>
+                            <li>Promove saciedade</li>
+                            <li>Regula açúcar no sangue</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="food-card" data-nutrient="fiber">
+                <div class="food-image">
+                    <img src="https://images.unsplash.com/photo-1647545401750-6dd5539879ac?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Feijão Preto">
+                </div>
+                <div class="food-content">
+                    <h3>Feijão Preto</h3>
+                    <div class="nutrient-info">
+                        <div class="nutrient-value">
+                            <span>8.7g</span>
+                            <label>Fibras/100g</label>
+                        </div>
+                        <div class="nutrient-value">
+                            <span>132</span>
+                            <label>Calorias</label>
+                        </div>
+                        <div class="nutrient-value">
+                            <span>8.9g</span>
+                            <label>Proteína</label>
+                        </div>
+                    </div>
+                    <div class="food-benefits">
+                        <h4>Benefícios:</h4>
+                        <ul>
+                            <li>Excelente fonte de fibras</li>
+                            <li>Rico em antioxidantes</li>
+                            <li>Promove saúde intestinal</li>
+                            <li>Fonte de proteína vegetal</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="food-card" data-nutrient="fiber">
+                <div class="food-image">
+                    <img src="https://images.unsplash.com/photo-1671624749229-7d37826013b5?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Abacate">
+                </div>
+                <div class="food-content">
+                    <h3>Abacate</h3>
+                    <div class="nutrient-info">
+                        <div class="nutrient-value">
+                            <span>6.7g</span>
+                            <label>Fibras/100g</label>
+                        </div>
+                        <div class="nutrient-value">
+                            <span>160</span>
+                            <label>Calorias</label>
+                        </div>
+                        <div class="nutrient-value">
+                            <span>2g</span>
+                            <label>Proteína</label>
+                        </div>
+                    </div>
+                    <div class="food-benefits">
+                        <h4>Benefícios:</h4>
+                        <ul>
+                            <li>Rico em gorduras saudáveis</li>
+                            <li>Fonte de potássio</li>
+                            <li>Promove saúde cardiovascular</li>
+                            <li>Melhora absorção de nutrientes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="food-card" data-nutrient="fiber">
+                <div class="food-image">
+                    <img src="https://images.unsplash.com/photo-1609622511068-70c39f3c2253?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Framboesas">
+                </div>
+                <div class="food-content">
+                    <h3>Framboesas</h3>
+                    <div class="nutrient-info">
+                        <div class="nutrient-value">
+                            <span>6.5g</span>
+                            <label>Fibras/100g</label>
+                        </div>
+                        <div class="nutrient-value">
+                            <span>52</span>
+                            <label>Calorias</label>
+                        </div>
+                        <div class="nutrient-value">
+                            <span>1.2g</span>
+                            <label>Proteína</label>
+                        </div>
+                    </div>
+                    <div class="food-benefits">
+                        <h4>Benefícios:</h4>
+                        <ul>
+                            <li>Rica em antioxidantes</li>
+                            <li>Baixo índice glicêmico</li>
+                            <li>Anti-inflamatória</li>
+                            <li>Promove saúde da pele</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="food-card" data-nutrient="fiber">
+                <div class="food-image">
+                    <img src="https://images.unsplash.com/photo-1508061253366-f7da158b6d46?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Amêndoas">
+                </div>
+                <div class="food-content">
+                    <h3>Amêndoas</h3>
+                    <div class="nutrient-info">
+                        <div class="nutrient-value">
+                            <span>12.5g</span>
+                            <label>Fibras/100g</label>
+                        </div>
+                        <div class="nutrient-value">
+                            <span>579</span>
+                            <label>Calorias</label>
+                        </div>
+                        <div class="nutrient-value">
+                            <span>21.2g</span>
+                            <label>Proteína</label>
+                        </div>
+                    </div>
+                    <div class="food-benefits">
+                        <h4>Benefícios:</h4>
+                        <ul>
+                            <li>Rica em vitamina E</li>
+                            <li>Fonte de gorduras saudáveis</li>
+                            <li>Promove saciedade</li>
+                            <li>Boa para saúde cardiovascular</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Cards de Alimentos Ricos em Vitamina C -->
+            <div class="food-card" data-nutrient="vitamin-c">
+                <div class="food-image">
+                    <img src="https://images.unsplash.com/photo-1730433267235-ed682d9346f9?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Pimentão Amarelo">
+                </div>
+                <div class="food-content">
+                    <h3>Pimentão Amarelo</h3>
+                    <div class="nutrient-info">
+                        <div class="nutrient-value">
+                            <span>183.5mg</span>
+                            <label>Vitamina C/100g</label>
+                        </div>
+                        <div class="nutrient-value">
+                            <span>27</span>
+                            <label>Calorias</label>
+                        </div>
+                        <div class="nutrient-value">
+                            <span>1g</span>
+                            <label>Proteína</label>
+                        </div>
+                    </div>
+                    <div class="food-benefits">
+                        <h4>Benefícios:</h4>
+                        <ul>
+                            <li>Mais vitamina C que laranjas</li>
+                            <li>Rico em antioxidantes</li>
+                            <li>Promove saúde ocular</li>
+                            <li>Auxilia na absorção de ferro</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="food-card" data-nutrient="vitamin-c">
+                <div class="food-image">
+                    <img src="https://images.unsplash.com/photo-1693399991519-bef70bed19a2?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Goiaba">
+                </div>
+                <div class="food-content">
+                    <h3>Goiaba</h3>
+                    <div class="nutrient-info">
+                        <div class="nutrient-value">
+                            <span>228.3mg</span>
+                            <label>Vitamina C/100g</label>
+                        </div>
+                        <div class="nutrient-value">
+                            <span>68</span>
+                            <label>Calorias</label>
+                        </div>
+                        <div class="nutrient-value">
+                            <span>2.6g</span>
+                            <label>Proteína</label>
+                        </div>
+                    </div>
+                    <div class="food-benefits">
+                        <h4>Benefícios:</h4>
+                        <ul>
+                            <li>Extremamente rica em vitamina C</li>
+                            <li>Boa fonte de licopeno</li>
+                            <li>Promove saúde digestiva</li>
+                            <li>Auxilia no controle glicêmico</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="food-card" data-nutrient="vitamin-c">
+                <div class="food-image">
+                    <img src="https://images.unsplash.com/photo-1610917040803-1fccf9623064?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Kiwi">
+                </div>
+                <div class="food-content">
+                    <h3>Kiwi</h3>
+                    <div class="nutrient-info">
+                        <div class="nutrient-value">
+                            <span>92.7mg</span>
+                            <label>Vitamina C/100g</label>
+                        </div>
+                        <div class="nutrient-value">
+                            <span>61</span>
+                            <label>Calorias</label>
+                        </div>
+                        <div class="nutrient-value">
+                            <span>1.1g</span>
+                            <label>Proteína</label>
+                        </div>
+                    </div>
+                    <div class="food-benefits">
+                        <h4>Benefícios:</h4>
+                        <ul>
+                            <li>Rico em vitamina C e K</li>
+                            <li>Contém actinidina (enzima digestiva)</li>
+                            <li>Promove saúde intestinal</li>
+                            <li>Melhora qualidade do sono</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="food-card" data-nutrient="vitamin-c">
+                <div class="food-image">
+                    <img src="https://images.unsplash.com/photo-1518164147695-36c13dd568f5?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Brócolis">
+                </div>
+                <div class="food-content">
+                    <h3>Brócolis</h3>
+                    <div class="nutrient-info">
+                        <div class="nutrient-value">
+                            <span>89.2mg</span>
+                            <label>Vitamina C/100g</label>
+                        </div>
+                        <div class="nutrient-value">
+                            <span>34</span>
+                            <label>Calorias</label>
+                        </div>
+                        <div class="nutrient-value">
+                            <span>2.8g</span>
+                            <label>Proteína</label>
+                        </div>
+                    </div>
+                    <div class="food-benefits">
+                        <h4>Benefícios:</h4>
+                        <ul>
+                            <li>Rico em sulforafano</li>
+                            <li>Propriedades anticancerígenas</li>
+                            <li>Promove detoxificação</li>
+                            <li>Boa fonte de vitamina K</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="food-card" data-nutrient="vitamin-c">
+                <div class="food-image">
+                    <img src="https://images.unsplash.com/photo-1587393855524-087f83d95bc9?q=80&w=760&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Morango">
+                </div>
+                <div class="food-content">
+                    <h3>Morangos</h3>
+                    <div class="nutrient-info">
+                        <div class="nutrient-value">
+                            <span>58.8mg</span>
+                            <label>Vitamina C/100g</label>
+                        </div>
+                        <div class="nutrient-value">
+                            <span>32</span>
+                            <label>Calorias</label>
+                        </div>
+                        <div class="nutrient-value">
+                            <span>0.7g</span>
+                            <label>Proteína</label>
+                        </div>
+                    </div>
+                    <div class="food-benefits">
+                        <h4>Benefícios:</h4>
+                        <ul>
+                            <li>Rico em antioxidantes</li>
+                            <li>Baixo índice glicêmico</li>
+                            <li>Promove saúde cardiovascular</li>
+                            <li>Protege a pele contra danos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<script>
+// Script do rastreamento de dieta
+
+// Diet Tracker 
+const foodList = document.getElementById('foodList');
+const addFoodBtn = document.getElementById('addFood');
+const foodNameInput = document.getElementById('foodName');
+const caloriesInput = document.getElementById('calories');
+const proteinsInput = document.getElementById('proteins');
+const carbsInput = document.getElementById('carbs');
+const fatsInput = document.getElementById('fats');
+
+// Inicializar totais como números
+let totalCals = 0;
+let totalProteins = 0;
+let totalCarbs = 0;
+let totalFats = 0;
+
+// Função para atualizar os totais na tela
+function updateTotals() {
+    document.getElementById('totalCalorias').textContent = Math.round(totalCals);
+    document.getElementById('totalProteinas').textContent = totalProteins.toFixed(1) + 'g';
+    document.getElementById('totalCarboidratos').textContent = totalCarbs.toFixed(1) + 'g';
+    document.getElementById('totalGorduras').textContent = totalFats.toFixed(1) + 'g';
+}
+
+addFoodBtn.addEventListener('click', () => {
+    const foodName = foodNameInput.value.trim();
+    const calories = parseFloat(caloriesInput.value) || 0;
+    const proteins = parseFloat(proteinsInput.value) || 0;
+    const carbs = parseFloat(carbsInput.value) || 0;
+    const fats = parseFloat(fatsInput.value) || 0;
+
+    if (foodName && (calories > 0 || proteins > 0 || carbs > 0 || fats > 0)) {
+        // Adiciona um item a lista
+        const foodItem = document.createElement('div');
+        foodItem.classList.add('food-item', 'fade-in');
+        foodItem.innerHTML = `
+            <p>${foodName} - ${calories} kcal | ${proteins}g P | ${carbs}g C | ${fats}g G</p>
+            <button class="action-button" onclick="deleteFood(this, ${calories}, ${proteins}, ${carbs}, ${fats})">
+                <i class="fas fa-trash"></i>
+            </button>
+        `;
+        foodList.appendChild(foodItem);
+
+        // Atualiza os totais
+        totalCals += calories;
+        totalProteins += proteins;
+        totalCarbs += carbs;
+        totalFats += fats;
+        updateTotals();
+
+        // Limpa os campos
+        foodNameInput.value = '';
+        caloriesInput.value = '';
+        proteinsInput.value = '';
+        carbsInput.value = '';
+        fatsInput.value = '';
+    } else {
+        alert('Por favor, preencha pelo menos o nome do alimento e um valor nutricional.');
+    }
+});
+
+// Função global para deletar os alimentos
+window.deleteFood = function(button, calories, proteins, carbs, fats) {
+    const foodItem = button.parentElement;
+    foodItem.style.animation = 'fadeInUp 0.5s ease reverse';
+    setTimeout(() => {
+        foodItem.remove();
+        totalCals -= calories;
+        totalProteins -= proteins;
+        totalCarbs -= carbs;
+        totalFats -= fats;
+        updateTotals();
+    }, 500);
+};
+//de hoje!!!!!! (29/07)
+const dicas = [
+  "Combine vegetais ricos em ferro com alimentos com vitamina C para melhorar a absorção! Feijão, lentilha e espinafre ficam ainda mais nutritivos quando acompanhados de limão, laranja ou pimentão.",
+  "Especiarias como canela, gengibre e pimenta ajudam a acelerar o metabolismo. Experimente adicioná-las ao café, mingau ou sopas para um efeito termogênico natural.",
+  "Ao deixar batata ou arroz esfriarem antes de comer, você aumenta a quantidade de amido resistente, que funciona como fibra e ajuda a controlar os níveis de açúcar no sangue.",
+  "Inclua gorduras saudáveis junto com vegetais! Azeite na salada, abacate em folhas verdes ou brócolis refogado no óleo de coco ajudam na absorção das vitaminas A, D, E e K.",
+  "Evite descascar demais! Cascas de batata-doce, maçã, berinjela e pepino contêm fibras e antioxidantes. Lave bem e aproveite, principalmente se forem orgânicos.",
+  "Comer proteína antes do doce diminui o pico glicêmico. Um punhado de castanhas ou um iogurte antes da sobremesa faz o açúcar ser absorvido mais devagar.",
+  "Use ervas frescas como manjericão, hortelã ou alecrim para temperar e reduzir o sal da comida, deixando tudo mais saboroso e saudável.",
+  "Prefira peixes pequenos, como sardinha, cavalinha ou anchova, que possuem menos mercúrio do que atum ou peixe-espada – ótima escolha para grávidas e crianças.",
+  "Cozinhar o tomate aumenta em até 5x a biodisponibilidade do licopeno, um antioxidante poderoso. Molhos caseiros são excelentes para potencializar seus benefícios.",
+  "Chá e café podem atrapalhar a absorção de ferro. Espere cerca de 1 hora após as refeições, principalmente vegetarianas, antes de consumir essas bebidas.",
+  "Varie as fontes de probióticos! Além de iogurte, kefir, kombucha e kimchi melhoram ainda mais a saúde intestinal.",
+  "Deixe sementes como chia, linhaça e amêndoas de molho por algumas horas antes de consumir. Isso remove antinutrientes e facilita a digestão.",
+  "A ordem da refeição faz diferença: coma primeiro salada ou legumes (fibras), depois proteínas e por último carboidratos para evitar picos de glicose.",
+  "Consumir peixe junto com alho ou cebola ajuda o corpo a eliminar metais pesados, como o mercúrio, graças aos compostos de enxofre desses temperos.",
+  "Smoothies são práticos, mas mastigar frutas inteiras ajuda na saciedade e aproveitamento dos nutrientes. Sempre que possível, prefira a fruta in natura com casca.",
+   "Coma devagar para ajudar na digestão.",
+  "Beba pelo menos 2 litros de água por dia.",
+  "Inclua frutas no café da manhã.",
+  "Evite frituras, prefira alimentos assados.",
+  "Leve um lanche saudável quando sair de casa.",
+  "Coma verduras em pelo menos duas refeições.",
+  "Prefira sucos naturais sem açúcar.",
+  "Faça pequenas caminhadas após as refeições.",
+  "Use pratos menores para controlar a quantidade de comida.",
+  "Troque refrigerante por água com gás e limão.",
+  "Durma bem para melhorar o metabolismo.",
+  "Evite comer tarde da noite.",
+  "Inclua grãos integrais no almoço e jantar.",
+  "Faça alongamentos diariamente.",
+  "Coma mais peixe e frango do que carne vermelha."
+];
+
+    function mostrarDica() {
+      const dicaBox = document.getElementById("dica");
+      dicaBox.style.opacity = 0;
+
+      setTimeout(() => {
+        const novaDica = dicas[Math.floor(Math.random() * dicas.length)];
+        dicaBox.textContent = novaDica;
+        dicaBox.style.opacity = 1;
+      }, 300);
+    }
+
+//script do semáforo de alimentos 
+
+ // Aguarda o carregamento completo da página
+        document.addEventListener('DOMContentLoaded', function() {
+            // Lista de alimentos categorizados
+            const alimentos = [
+                // Alimentos Verdes (saudáveis)
+                { nome: "Maçã", categoria: "verde" },
+                { nome: "Brócolis", categoria: "verde" },
+                { nome: "Espinafre", categoria: "verde" },
+                { nome: "Quinoa", categoria: "verde" },
+                { nome: "Salmão", categoria: "verde" },
+                { nome: "Ovos caipiras", categoria: "verde" },
+                { nome: "Abacate", categoria: "verde" },
+                { nome: "Batata Doce", categoria: "verde" },
+                
+                // Alimentos Amarelos (moderar)
+                { nome: "Arroz Branco", categoria: "amarelo" },
+                { nome: "Pão Integral", categoria: "amarelo" },
+                { nome: "Queijo", categoria: "amarelo" },
+                { nome: "Carne Vermelha magra", categoria: "amarelo" },
+                { nome: "Chocolate 70% cacau", categoria: "amarelo" },
+                { nome: "Vinho tinto (1 taça/dia)", categoria: "amarelo" },
+                { nome: "Azeite de Oliva", categoria: "amarelo" },
+                { nome: "Iogurte Natural", categoria: "amarelo" },
+                
+                // Alimentos Vermelhos (evitar)
+                { nome: "Refrigerante", categoria: "vermelho" },
+                { nome: "Batata Frita", categoria: "vermelho" },
+                { nome: "Hambúrguer Fast Food", categoria: "vermelho" },
+                { nome: "Sorvete Industrializado", categoria: "vermelho" },
+                { nome: "Biscoito Recheado", categoria: "vermelho" },
+                { nome: "Salgadinhos de pacote", categoria: "vermelho" },
+                { nome: "Bebida Alcoólica em excesso", categoria: "vermelho" },
+                { nome: "Alimentos Ultraprocessados", categoria: "vermelho" }
+            ];
+
+            // Referências às listas HTML
+            const listaVerde = document.getElementById('alimentos-verdes');
+            const listaAmarela = document.getElementById('alimentos-amarelos');
+            const listaVermelha = document.getElementById('alimentos-vermelhos');
+
+            // Adiciona cada alimento à lista correspondente
+            alimentos.forEach(alimento => {
+                const itemLista = document.createElement('li');
+                itemLista.className = 'item-alimento';
+                itemLista.innerHTML = `<span class="nome-alimento">${alimento.nome}</span>`;
+                
+                if (alimento.categoria === 'verde') {
+                    listaVerde.appendChild(itemLista);
+                } else if (alimento.categoria === 'amarelo') {
+                    listaAmarela.appendChild(itemLista);
+                } else {
+                    listaVermelha.appendChild(itemLista);
+                }
+            });
+        });
+
+
+//Semáforo interativo 
+        const alimentosInterativo = [
+            // Alimentos Verdes
+            { 
+                nome: "Pepino", 
+                categoria: "verde",
+                explicacao: "Rico em água e fibras, ajuda na hidratação e digestão. Baixíssimo em calorias e rico em vitaminas K e C."
+            },
+            { 
+                nome: "Couve", 
+                categoria: "verde",
+                explicacao: "Fonte excelente de vitaminas A, C e K, além de cálcio e antioxidantes. Ajuda na desintoxicação do organismo."
+            },
+            { 
+                nome: "Lentilha", 
+                categoria: "verde",
+                explicacao: "Excelente fonte de proteína vegetal, fibras e ferro. Ótima para saúde intestinal e controle glicêmico."
+            },
+            { 
+                nome: "Atum", 
+                categoria: "verde",
+                explicacao: "Rico em ômega-3, proteínas de alta qualidade e selênio. Beneficia a saúde cardiovascular e cerebral."
+            },
+            { 
+                nome: "Amêndoas", 
+                categoria: "verde",
+                explicacao: "Cheias de gorduras saudáveis, vitamina E e magnésio. Ajudam a controlar o colesterol e a saciedade."
+            },
+            
+            // Alimentos Amarelos
+            { 
+                nome: "Macarrão integral", 
+                categoria: "amarelo",
+                explicacao: "Melhor que o macarrão branco por conter mais fibras, mas ainda assim rico em carboidratos. Consuma com moderação."
+            },
+            { 
+                nome: "Leite", 
+                categoria: "amarelo",
+                explicacao: "Boa fonte de cálcio e proteínas, mas pode ser problemático para intolerantes à lactose. Prefira versões desnatadas."
+            },
+            { 
+                nome: "Mel", 
+                categoria: "amarelo",
+                explicacao: "Natural e com propriedades medicinais, mas ainda é um açúcar concentrado. Use em pequenas quantidades."
+            },
+            { 
+                nome: "Frango com pele", 
+                categoria: "amarelo",
+                explicacao: "Proteína de qualidade, mas a pele aumenta muito o teor de gordura saturada. Melhor consumir sem pele."
+            },
+            
+            // Alimentos Vermelhos
+            { 
+                nome: "Bacon", 
+                categoria: "vermelho",
+                explicacao: "Rico em gorduras saturadas, sódio e conservantes como nitritos, associados a riscos cardiovasculares e câncer."
+            },
+            { 
+                nome: "Pizza congelada", 
+                categoria: "vermelho",
+                explicacao: "Alto teor de sódio, conservantes, gordura trans e farinha refinada. Versões caseiras podem ser menos prejudiciais."
+            },
+            { 
+                nome: "Margarina", 
+                categoria: "vermelho",
+                explicacao: "Contém gorduras trans artificiais, que aumentam o colesterol ruim e reduzem o bom. Prefira manteiga ou azeite."
+            },
+            { 
+                nome: "Cereal açucarado", 
+                categoria: "vermelho",
+                explicacao: "Rico em açúcares adicionados e farinha refinada. Causa picos glicêmicos e pouco saciedade."
+            }
+        ];
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const listaVerde = document.getElementById('alimentos-verdes');
+            const listaAmarela = document.getElementById('alimentos-amarelos');
+            const listaVermelha = document.getElementById('alimentos-vermelhos');
+
+            alimentosSuperior.forEach(alimento => {
+                const itemLista = document.createElement('li');
+                itemLista.className = 'item-alimento';
+                itemLista.innerHTML = `<span class="nome-alimento">${alimento.nome}</span>`;
+                
+                if (alimento.categoria === 'verde') {
+                    listaVerde.appendChild(itemLista);
+                } else if (alimento.categoria === 'amarelo') {
+                    listaAmarela.appendChild(itemLista);
+                } else {
+                    listaVermelha.appendChild(itemLista);
+                }
+            });
+        });
+
+        // Função pra sortear alimentos no semáforo interativo
+        function sortearAlimento(categoria) {
+            const resultado = document.getElementById('resultado-semaforo');
+            const alimentosFiltrados = alimentosInterativo.filter(a => a.categoria === categoria);
+            
+            if (alimentosFiltrados.length === 0) {
+                resultado.innerHTML = "<strong>Nenhum alimento disponível nesta categoria</strong>";
+                return;
+            }
+            
+            const aleatorio = Math.floor(Math.random() * alimentosFiltrados.length);
+            const alimentoSorteado = alimentosFiltrados[aleatorio];
+            
+            // Atualiza o visual do resultado
+            resultado.innerHTML = `
+                <strong>${alimentoSorteado.nome}</strong>
+                <div class="explicacao-nutricional">${alimentoSorteado.explicacao}</div>
+            `;
+            resultado.style.backgroundColor = getCorFundo(categoria);
+            resultado.style.border = `2px solid ${getCorBorda(categoria)}`;
+        }
+
+        // Funções auxiliares para cores
+        function getCorFundo(categoria) {
+            return {
+                'verde': 'rgba(76, 175, 80, 0.2)',
+                'amarelo': 'rgba(255, 235, 59, 0.2)',
+                'vermelho': 'rgba(244, 67, 54, 0.2)'
+            }[categoria];
+        }
+
+        function getCorBorda(categoria) {
+            return {
+                'verde': '#4CAF50',
+                'amarelo': '#FFC107',
+                'vermelho': '#F44336'
+            }[categoria];
+        }
+
+document.getElementById('calculate-btn').addEventListener('click', function() {
+    const weight = parseFloat(document.getElementById('weight').value);
+            
+    if (isNaN(weight) || weight <= 0) {
+        document.getElementById('result').innerHTML = '<p>Por favor, digite um peso válido</p>';
+        return;
+    }
+            
+    const waterAmount = weight * 35;
+    const liters = waterAmount / 1000;
+            
+    document.getElementById('result').innerHTML = `
+        <p>Você deve beber aproximadamente:</p>
+        <h3>${waterAmount.toFixed(0)}ml (${liters.toFixed(2)}L)</h3>
+        <p>de água por dia</p>
+    `;
+});
+
+//  Tabela de Substituições -> lista mostrando trocas saudáveis 
+        document.addEventListener('DOMContentLoaded', function() {
+            const rows = document.querySelectorAll('.substitution-table tbody tr');
+            
+            rows.forEach(row => {
+                row.addEventListener('click', function() {
+                    rows.forEach(r => r.classList.remove('highlight'));
+
+                    this.classList.add('highlight');
+
+                    const badFood = this.querySelector('.bad-food').textContent.replace('×', '').trim();
+                    const goodFood = this.querySelector('.good-food').textContent.replace('✓', '').trim();
+                    const benefits = this.querySelector('td:nth-child(3)').textContent.replace('♥', '').trim();
+
+                    console.log('Substituição sugerida:');
+                    console.log(`Evitar: ${badFood}`);
+                    console.log(`Prefira: ${goodFood}`);
+                    console.log(`Benefícios: ${benefits}`);
+                });
+            });
+
+            function showFoodTip(bad, good, benefits) {
+                alert(`SUBSTITUIÇÃO SAUDÁVEL:\n\nEvite: ${bad}\n\nSubstitua por: ${good}\n\nBenefícios: ${benefits}`);
+            }
+        });
+
+// cards fixos mostrando alimentos saudáveis 
+
+document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.nutrient-tab');
+            const cards = document.querySelectorAll('.food-card');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs
+                    tabs.forEach(t => t.classList.remove('active'));
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    const nutrientType = this.getAttribute('data-nutrient');
+                    
+                    // Hide all cards
+                    cards.forEach(card => {
+                        card.classList.remove('active');
+                    });
+                    
+                    // Show only cards with matching nutrient type
+                    const matchingCards = document.querySelectorAll(`.food-card[data-nutrient="${nutrientType}"]`);
+                    matchingCards.forEach(card => {
+                        card.classList.add('active');
+                    });
+                });
+            });
+        });
+</script>
+</body>
+</html>

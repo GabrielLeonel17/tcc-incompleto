@@ -1,0 +1,2014 @@
+:root {
+    --primary-color: #006eff; /* Laranja vibrante */
+    --secondary-color: #000000; /* Preto */
+    --text-color: #000000; /* Preto suave para texto */
+    --white: #ffffff;
+    --light-gray: #e6e2e2;
+    --orange-hover: #006eff; /* Laranja mais claro para hover */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background: var(--white);
+}
+
+/* Navbar */
+.navbar {
+    background: var(--secondary-color);
+    padding: 1.2rem 5%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fit-life-logo {
+    transition: transform 0.3s ease;
+}
+.fit-life-logo:hover {
+    transform: scale(1.1); 
+}
+
+.logo h1 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+}
+
+.nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.nav-links a.active {
+    color: var(--primary-color);
+}
+
+.menu-mobile {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)),
+                url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 5%;
+    margin-top: 76px;
+    position: relative;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(to top, rgba(255,255,255,0.1), transparent);
+    pointer-events: none;
+}
+
+.hero-content {
+    color: var(--white);
+    max-width: 900px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    font-weight: 700;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.95;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.cta-button {
+    padding: 1.2rem 2.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cta-button.primary {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+.cta-button.secondary {
+    background: transparent;
+    border: 2px solid var(--white);
+    color: var(--white);
+    backdrop-filter: blur(5px);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.cta-button.primary:hover {
+    background: var(--orange-hover);
+}
+
+.cta-button.secondary:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+/* Sections */
+.section {
+    padding: 6rem 5%;
+    background: var(--white);
+}
+
+.section h2 {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 4rem;
+    color: var(--secondary-color);
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--primary-color);
+}
+
+/* Assessment Cards */
+.assessment-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    margin-top: 2rem;
+}
+
+.assessment-card {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.assessment-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    border-color: var(--primary-color);
+}
+
+.assessment-card i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.assessment-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+}
+
+/* Supplements Section */
+.supplements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
+
+.supplement-card {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border: 1px solid rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.supplement-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    border-color: var(--primary-color);
+}
+
+.supplement-card h3 {
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.supplement-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: var(--primary-color);
+}
+
+.supplement-card ul {
+    list-style: none;
+    margin-top: 1.5rem;
+}
+
+.supplement-card ul li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    color: var(--text-color);
+    font-size: 1.1rem;
+}
+
+/* Articles Section */
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
+
+.article-card {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border: 1px solid rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    border-color: var(--primary-color);
+}
+
+.article-card h3 {
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.article-card p {
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 1rem 0;
+}
+
+.article-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+.article-content.show {
+    max-height: 1000px;
+}
+
+.article-content h4 {
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+    margin: 1.5rem 0 1rem;
+}
+
+.article-content ul {
+    list-style: none;
+    margin: 1rem 0;
+}
+
+.article-content li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.article-content li:last-child {
+    border-bottom: none;
+}
+
+.article-content strong {
+    color: var(--primary-color);
+}
+
+.read-more {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.read-more:hover {
+    color: var(--orange-hover);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Footer de todas as paginas*/
+.footer {
+    background: var(--secondary-color);
+    color: var(--white);
+    padding: 5rem 5% 2rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.footer-section h4, 
+.footer-section h5 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.footer-section a {
+    color: var(--white);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.8rem;
+    transition: color 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.footer-section a:hover {
+    color: var(--primary-color);
+}
+
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.social-links a {
+    font-size: 1.8rem;
+    transition: transform 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .menu-mobile {
+        display: block;
+        color: var(--white);
+        font-size: 1.8rem;
+        cursor: pointer;
+    }
+    
+    .hero {
+        background-attachment: scroll;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        padding: 0 1rem;
+    }
+    
+    .section {
+        padding: 4rem 5%;
+    }
+
+    .section h2 {
+        font-size: 2.3rem;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section {
+    animation: fadeIn 1s ease-out;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease;
+}
+
+/* Workout Planner */
+.workout-planner {
+    background: var(--white);
+    border-radius: 15px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.workout-controls {
+    margin-bottom: 2rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.action-button {
+    padding: 1rem 2rem;
+    background: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.action-button:hover {
+    background: var(--orange-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.action-button i {
+    font-size: 1.2rem;
+}
+
+.workout-table {
+    overflow-x: auto;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.workout-table table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px;
+}
+
+.workout-table th {
+    background: var(--secondary-color);
+    color: var(--white);
+    padding: 1.2rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.workout-table td {
+    padding: 1.2rem;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+.workout-table tr:hover {
+    background: rgba(255,107,0,0.05);
+}
+
+/* Diet Tracker */
+.diet-tracker {
+    background: var(--white);
+    border-radius: 15px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.macro-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.macro-card {
+    background: var(--secondary-color);
+    color: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.macro-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--primary-color);
+}
+
+.macro-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--white);
+}
+
+.macro-card p {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.food-input {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.food-input input {
+    padding: 1rem;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.food-input input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255,107,0,0.1);
+}
+
+.food-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.food-item {
+    background: var(--white);
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.food-item:hover {
+    border-color: var(--primary-color);
+    transform: translateX(5px);
+}
+
+/* TMB Calculator */
+.tmb-calculator {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.calculator-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-group label {
+    font-weight: 600;
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+}
+
+.input-group input,
+.input-group select {
+    padding: 1rem;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255,107,0,0.1);
+}
+
+.result-card {
+    background: var(--secondary-color);
+    padding: 2.5rem;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.result-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--primary-color);
+}
+
+.result-card h3 {
+    color: var(--white);
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+}
+
+.tmb-result {
+    font-size: 3rem;
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-top: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .workout-table {
+        margin: 0 -1.5rem;
+        border-radius: 0;
+    }
+    
+    .macro-card p {
+        font-size: 1.5rem;
+    }
+    
+    .tmb-calculator {
+        padding: 1.5rem;
+    }
+    
+    .result-card {
+        padding: 2rem;
+    }
+    
+    .tmb-result {
+        font-size: 2.5rem;
+    }
+}
+
+/* Weekly Workouts */
+.weekly-workouts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.workout-day {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border: 1px solid rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.workout-day:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    border-color: var(--primary-color);
+}
+
+.workout-day h3 {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.workout-day h4 {
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.workout-day ul {
+    list-style: none;
+}
+
+.workout-day li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+.workout-day li:last-child {
+    border-bottom: none;
+} 
+
+.workout-table input {
+    width: 90%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.workout-table button {
+    padding: 10px;
+    background-color: #e2322f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.fit-life-logo {
+    width: 40px;
+    height: 40px;
+    vertical-align: middle; 
+}
+
+.logo {
+    display: flex;        
+    align-items: center;    
+    gap: 10px;            
+}
+
+.logo h1 {
+    margin: 0;             
+    font-size: 1.5rem;     
+}
+
+.fit-life-logo {
+    width: 30px;        
+    height: 30px;
+}
+
+/*Estilo da página de treinos*/
+/* Estilo da seção de treinos */
+.treino-section {
+    padding: 4rem 5%;
+    background-color: var(--white);
+    color: var(--text-color);
+    font-family: 'Poppins', sans-serif;
+}
+
+.treino-section h2 {
+    font-size: 2.2rem;
+    color: var(--secondary-color);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.treino-form {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--light-gray);
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.treino-form label {
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    display: block;
+    color: var(--secondary-color);
+}
+
+.treino-form select {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 5px;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.treino-form select:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255,107,0,0.1);
+}
+
+#mostrarTreinosBtn {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+}
+
+#mostrarTreinosBtn:hover {
+    background: var(--orange-hover);
+    transform: translateY(-2px);
+}
+
+
+/* Estilo da seção de treinos */
+.treino-section {
+    padding: 4rem 5%;
+    background-color: var(--white);
+    color: var(--text-color);
+    font-family: 'Poppins', sans-serif;
+}
+
+.treino-section h2 {
+    font-size: 2.2rem;
+    color: var(--secondary-color);
+    margin-bottom: 2rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.treino-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--primary-color);
+}
+
+.treino-form {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--light-gray);
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.treino-form label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: block;
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+}
+
+.treino-form select {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 5px;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--white);
+    color: var(--text-color);
+}
+
+.treino-form select:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255,107,0,0.1);
+}
+
+#mostrarTreinosBtn {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+    font-weight: 700; 
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+#mostrarTreinosBtn:hover {
+    background: var(--orange-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); 
+}
+
+/* Estilo para os resultados */
+.treino-resultado {
+    max-width: 800px;
+    margin: 3rem auto 0;
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border: 1px solid rgba(0,0,0,0.1);
+    animation: fadeIn 0.5s ease-out;
+}
+
+.treino-resultado h3 {
+    color: var(--secondary-color);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.treino-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.treino-info p {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.treino-info strong {
+    color: var(--primary-color);
+}
+
+.exercicios-list {
+    list-style: none;
+}
+
+.exercicios-list li {
+    padding: 1rem;
+    margin-bottom: 0.8rem;
+    background: rgba(255,107,0,0.05);
+    border-left: 4px solid var(--primary-color);
+    border-radius: 0 5px 5px 0;
+    transition: all 0.3s ease;
+}
+
+.exercicios-list li:hover {
+    background: rgba(255,107,0,0.1);
+    transform: translateX(5px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .treino-form {
+        padding: 1.5rem;
+    }
+    
+    .treino-resultado {
+        padding: 1.5rem;
+    }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  text-align: center;    
+  background: var(--white);
+  padding: 2rem;
+  margin-bottom: 3rem; 
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  max-width: 400px;
+  width: 90%;
+}
+
+h3 {
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.roleta p {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+  min-height: 50px;
+}
+
+button {
+  padding: 12px 25px;
+  font-size: 1rem;
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: var(--orange-hover);
+}
+
+h4 {
+  text-align: center;
+  color: var(--secondary-color);
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+#textoDica {
+  text-align: center;
+  color: var(--text-color);
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+#botaoDica {
+  display: block;
+  margin: 0 auto; 
+  margin-bottom: 3rem; 
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#botaoDica:hover {
+  background-color: var(--orange-hover);
+}
+
+/* de hoje!!!!!!*/
+
+.video-section {
+  background-color: var(--white);
+  padding: 4rem 5%;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.video-section h2 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+  align-items: stretch;
+}
+
+.video-card {
+  background-color: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  max-width: 360px;
+  width: 100%;
+  height: 100%;
+  min-height: 480px; /* ⬅ Aumenta a altura dos cards */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.video-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* Proporção 16:9 */
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  flex-shrink: 0;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-card h3 {
+  color: var(--secondary-color);
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+}
+
+.video-card p {
+  color: var(--text-color);
+  font-size: 1rem;
+  margin-top: auto;
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  height: 300px; /* aumente aqui conforme desejar (antes era ~56.25%) */
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border: none;
+}
+
+/*timer de descanso entre as series*/
+
+.timer-container {
+  background: var(--white);
+  padding: 2rem;
+  margin: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+h2 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.time-display {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+button {
+  flex: 1;
+  padding: 0.7rem;
+  font-size: 1rem;
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: var(--orange-hover);
+}
+
+select {
+  width: 100%;
+  padding: 0.7rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.finished {
+  color: green; 
+  font-weight: bold;
+}
+
+.timer-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem; 
+}
+
+/*pagina de nutrição*/ 
+
+.container {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 350px;
+}
+
+h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+    .dica-box {
+    background-color: var(--light-gray);
+    border-left: 4px solid var(--primary-color);
+    padding: 1rem;
+     margin-bottom: 1.5rem;
+    min-height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: opacity 0.5s;
+    opacity: 1;
+}
+
+button {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--orange-hover);
+    }
+
+/*Página de nutrição- Semáforo de alimentos*/ 
+.semaforo-nutricional {
+    max-width: 1000px;  
+    margin: 2rem auto;
+    padding: 2rem;
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    font-family: 'Poppins', sans-serif;
+}
+
+.titulo-nutricional {
+    text-align: center;
+    color: var(--secondary-color);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.titulo-nutricional::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--primary-color);
+}
+
+.categorias-alimentos {
+    display: flex;  /* Mudado para flex */
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.categoria-alimento {
+    flex: 1;  /* Faz as categorias se expandirem igualmente */
+    min-width: 250px;  /* Largura mínima para cada categoria */
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.categoria-alimento:hover {
+    transform: translateY(-5px);
+}
+
+.titulo-categoria {
+    font-size: 1.3rem;  /* Reduzi um pouco o tamanho */
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid;
+    font-weight: 600;
+    text-align: center;  /* Centralizei o título */
+}
+
+.lista-alimentos {
+    list-style: none;
+    padding: 0;
+}
+
+.item-alimento {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nome-alimento {
+    font-weight: 500;
+}
+
+/* Cores do semáforo */
+.categoria-verde {
+    background: rgba(76, 175, 80, 0.1);
+    border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.categoria-verde .titulo-categoria {
+    color: #4CAF50;
+    border-bottom-color: #4CAF50;
+}
+
+.categoria-amarela {
+    background: rgba(255, 235, 59, 0.1);
+    border: 1px solid rgba(255, 235, 59, 0.3);
+}
+
+.categoria-amarela .titulo-categoria {
+    color: #FFC107;
+    border-bottom-color: #FFC107;
+}
+
+.categoria-vermelha {
+    background: rgba(244, 67, 54, 0.1);
+    border: 1px solid rgba(244, 67, 54, 0.3);
+}
+
+.categoria-vermelha .titulo-categoria {
+    color: #F44336;
+    border-bottom-color: #F44336;
+}
+
+        /*Responsividade*/
+@media (max-width: 900px) {
+    .categorias-alimentos {
+        flex-direction: column;
+    }
+            
+    .categoria-alimento {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .semaforo-nutricional {
+        padding: 1rem;
+        margin: 1rem;
+    }
+            
+    .titulo-nutricional {
+        font-size: 1.8rem;
+    }
+}
+
+.semaforo-nutricional {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    font-family: 'Poppins', sans-serif;
+}
+
+.titulo-nutricional {
+    text-align: center;
+    color: var(--secondary-color);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.titulo-nutricional::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--primary-color);
+        }
+
+.categorias-alimentos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.categoria-alimento {
+    flex: 1;
+    min-width: 250px;
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.semaforo-interativo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3rem;
+    padding: 2rem;
+    background: #f8f8f8;
+    border-radius: 12px;
+}
+
+.luzes-semaforo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.luz {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid #333;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.luz:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.luz-verde {
+    background-color: #4CAF50;
+}
+
+.luz-amarela {
+    background-color: #FFC107;
+}
+
+.luz-vermelha {
+    background-color: #F44336;
+}
+
+.resultado-semaforo {
+    padding: 1.5rem;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+.categoria-verde {
+    background: rgba(76, 175, 80, 0.1);
+    border: 1px solid rgba(76, 175, 80, 0.3);
+}
+.categoria-verde .titulo-categoria {
+    color: #4CAF50;
+    border-bottom-color: #4CAF50;
+}
+.categoria-amarela {
+    background: rgba(255, 235, 59, 0.1);
+    border: 1px solid rgba(255, 235, 59, 0.3);
+}
+.categoria-amarela .titulo-categoria {
+    color: #FFC107;
+    border-bottom-color: #FFC107;
+}
+.categoria-vermelha {
+    background: rgba(244, 67, 54, 0.1);
+    border: 1px solid rgba(244, 67, 54, 0.3);
+}
+.categoria-vermelha .titulo-categoria {
+    color: #F44336;
+    border-bottom-color: #F44336;
+}
+
+@media (max-width: 900px) {
+    .categorias-alimentos {
+        flex-direction: column;
+            }
+    .categoria-alimento {
+        width: 100%;
+    }
+}
+
+/*Página de nutrição- Calculadora de água diária*/
+.water-calculator-container {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.water-calculator-container h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.calculator-input {
+    margin: 2rem 0;
+}
+
+.calculator-input label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.calculator-input input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+#calculate-btn {
+    background: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#calculate-btn:hover {
+    background: var(--orange-hover);
+}
+
+.calculator-result {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: var(--light-gray);
+    border-radius: 5px;
+    font-size: 1.2rem;
+}
+
+.water-info {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+
+/*Página de nutrição- Tabela de Substituições -> lista mostrando trocas saudáveis */
+.substitution-section {
+    padding: 6rem 5%;
+        background: var(--white);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.substitution-section h2 {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 4rem;
+    color: var(--secondary-color);
+        position: relative;
+    padding-bottom: 1rem;
+}
+
+.substitution-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--primary-color);
+}
+
+.substitution-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.substitution-table th {
+    background: var(--secondary-color);
+    color: var(--white);
+    padding: 1.5rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.substitution-table td {
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    color: var(--text-color);
+    font-size: 1.1rem;
+    vertical-align: top;
+}
+
+.substitution-table tr:nth-child(even) {
+    background-color: var(--light-gray);
+}
+
+.substitution-table tr:hover {
+    background: rgba(255,107,0,0.05);
+}
+
+.bad-food {
+    color: #F44336;
+    font-weight: 500;
+}
+
+.good-food {
+    color: #4CAF50;
+    font-weight: 500;
+}
+
+.substitution-info {
+    background: var(--light-gray);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-top: 3rem;
+    border-left: 4px solid var(--primary-color);
+}
+
+.substitution-info h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.substitution-info p {
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.health-icon {
+    color: var(--primary-color);
+    margin-right: 8px;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+    .substitution-section h2 {
+        font-size: 2.3rem;
+    }
+            
+    .substitution-table {
+        display: block;
+        overflow-x: auto;
+    }
+            
+    .substitution-table td {
+                padding: 0.8rem;
+                font-size: 1rem;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.substitution-section {
+    animation: fadeIn 1s ease-out;
+}
+
+.highlight {
+    background-color: rgba(255, 107, 0, 0.1) !important;
+    transition: background-color 0.3s ease;
+}
+
+.bad-food .fa-times-circle {
+    color: #F44336; 
+}
+
+.good-food .fa-check-circle {
+    color: #4CAF50;
+}
+
+/*Página de nutrição- Top 5 Alimentos Ricos em Proteínas/Fibras/Vitamina C -> cards fixos ou alternados via
+ JavaScript.*/
+
+.nutritious-foods {
+    padding: 6rem 5%;
+    background: var(--white);
+}
+
+.nutritious-foods h2 {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 4rem;
+    color: var(--secondary-color);
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.nutritious-foods h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--primary-color);
+}
+
+.nutrient-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.nutrient-tab {
+    padding: 1rem 2rem;
+    background: var(--light-gray);
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--text-color);
+}
+
+.nutrient-tab.active {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+.nutrient-tab:hover:not(.active) {
+    background: rgba(255, 107, 0, 0.1);
+}
+
+.food-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+}
+
+.food-card {
+    background: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border: 1px solid rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    display: none;
+}
+
+.food-card.active {
+    display: block;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.food-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    border-color: var(--primary-color);
+}
+
+.food-image {
+    height: 200px;
+    overflow: hidden;
+}
+
+.food-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.food-card:hover .food-image img {
+    transform: scale(1.05);
+}
+
+.food-content {
+    padding: 2rem;
+}
+
+.food-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+}
+
+.nutrient-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.nutrient-value {
+    text-align: center;
+}
+
+.nutrient-value span {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.nutrient-value label {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.food-benefits {
+    margin-top: 1.5rem;
+}
+
+.food-benefits h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+    color: var(--secondary-color);
+}
+
+.food-benefits ul {
+    list-style: none;
+}
+
+.food-benefits li {
+    padding: 0.5rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.food-benefits li::before {
+    content: '\f00c';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .nutritious-foods h2 {
+        font-size: 2.3rem;
+    }
+            
+    .nutrient-tabs {
+        flex-direction: column;
+        align-items: center;
+    }
+            
+    .nutrient-tab {
+        width: 100%;
+        text-align: center;
+    }
+}

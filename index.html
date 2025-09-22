@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitLife - Academia & Bem-estar | Seu Parceiro em Resultados</title>
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/2936/2936886.png" type="image/x-icon">
+    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <h1>FitLife</h1>
+            <img src="assets/favicon.png" alt="imagem da logo" class="fit-life-logo">
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Início</a> <!--Alguma coisa no js está deixando o "inicio" em laranja sempre, tenho que ajustar depois-->
+            <a href="pages/treinos.html">Treinos</a>
+            <a href="pages/nutricao.html">Nutrição</a>
+            <a href="#suplementacao">Suplementação</a>
+            <a href="#calculadora">Calculadoras</a>
+            <a href="#artigos">Artigos</a>
+        </div>
+        <div class="menu-mobile">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <h1>Transforme seu Corpo, Transforme sua Vida!</h1>
+            <p>Metodologia exclusiva baseada em ciência para resultados reais</p>
+        </div>
+    </header>
+
+<section id="dieta" class="section"> <!--trocar de página depois, mas está funcionado-->
+    <h2>Rastreamento de Dieta</h2>
+    <div class="diet-tracker">
+        <div class="macro-summary">
+            <div class="macro-card">
+                <h3>Calorias</h3>
+                <p id="totalCalorias">0</p>
+            </div>
+            <div class="macro-card">
+                <h3>Proteínas</h3>
+                <p id="totalProteinas">0g</p>
+            </div>
+            <div class="macro-card">
+                <h3>Carboidratos</h3>
+                <p id="totalCarboidratos">0g</p>
+            </div>
+            <div class="macro-card">
+                <h3>Gorduras</h3>
+                <p id="totalGorduras">0g</p>
+            </div>
+        </div>
+        <div class="food-input">
+            <input type="text" id="foodName" placeholder="Nome do alimento" required>
+            <input type="number" id="calories" placeholder="Calorias" min="0" step="1">
+            <input type="number" id="proteins" placeholder="Proteínas (g)" min="0" step="0.1">
+            <input type="number" id="carbs" placeholder="Carboidratos (g)" min="0" step="0.1">
+            <input type="number" id="fats" placeholder="Gorduras (g)" min="0" step="0.1">
+
+            <button id="addFood" class="action-button">Adicionar Alimento</button>
+        </div>
+        <div class="food-list" id="foodList">
+            <!-- Alimentos serão adicionados aqui via JavaScript -->
+        </div>
+    </div>
+</section>
+
+    <section id="calculadora" class="section">
+        <h2>Calculadora de Taxa Metabólica Basal</h2>
+        <div class="tmb-calculator">
+            <div class="calculator-form">
+                <div class="input-group">
+                    <label for="idade">Idade:</label>
+                    <input type="number" id="idade" placeholder="Anos">
+                </div>
+                <div class="input-group">
+                    <label for="peso">Peso:</label>
+                    <input type="number" id="peso" placeholder="kg">
+                </div>
+                <div class="input-group">
+                    <label for="altura">Altura:</label>
+                    <input type="number" id="altura" placeholder="cm">
+                </div>
+                <div class="input-group">
+                    <label>Sexo:</label>
+                    <select id="sexo">
+                        <option value="masculino">Masculino</option>
+                        <option value="feminino">Feminino</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Nível de Atividade:</label>
+                    <select id="nivelAtividade">
+                        <option value="1.2">Sedentário</option>
+                        <option value="1.375">Levemente Ativo</option>
+                        <option value="1.55">Moderadamente Ativo</option>
+                        <option value="1.725">Muito Ativo</option>
+                        <option value="1.9">Extremamente Ativo</option>
+                    </select>
+                </div>
+                <button id="calcularTMB" class="action-button">Calcular TMB</button>
+            </div>
+            <div class="result-card" id="resultadoTMB">
+                <h3>Sua Taxa Metabólica Basal</h3>
+                <p class="tmb-result">0 kcal/dia</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="suplementacao" class="section">
+        <h2>Suplementação Inteligente</h2>
+        <div class="supplements-grid">
+            <div class="supplement-card">
+                <h3>Whey Protein</h3>
+                <p>Recuperação muscular e ganho de massa magra</p>
+                <ul>
+                    <li>Concentrado</li>
+                    <li>Isolado</li>
+                    <li>Hidrolisado</li>
+                </ul>
+            </div>
+            <div class="supplement-card">
+                <h3>BCAA</h3>
+                <p>Aminoácidos essenciais para performance</p>
+                <ul>
+                    <li>Leucina</li>
+                    <li>Isoleucina</li>
+                    <li>Valina</li>
+                </ul>
+            </div>
+            <div class="supplement-card">
+                <h3>Creatina</h3>
+                <p>Força e potência muscular</p>
+                <ul>
+                    <li>Monohidratada</li>
+                    <li>Micronizada</li>
+                    <li>Creapura®</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="artigos" class="section">
+        <h2>Conteúdo Educativo</h2>
+        <div class="articles-grid">
+            <article class="article-card">
+                <h3>Ciência do Treino</h3>
+                <p>Descubra os princípios fundamentais do treinamento de força e como aplicá-los para maximizar seus resultados. Aprenda sobre volume, intensidade, frequência e recuperação.</p>
+                <div class="article-content hidden">
+                    <h4>Princípios Fundamentais</h4>
+                    <p>O treinamento de força eficaz se baseia em três princípios fundamentais:</p>
+                    <ul>
+                        <li><strong>Sobrecarga Progressiva:</strong> Aumento gradual da carga ou volume de treino</li>
+                        <li><strong>Especificidade:</strong> Adaptação específica às demandas impostas</li>
+                        <li><strong>Recuperação:</strong> Período adequado para supercompensação</li>
+                    </ul>
+                    <h4>Volume de Treino</h4>
+                    <p>O volume de treino ideal varia de acordo com:</p>
+                    <ul>
+                        <li>Nível de experiência</li>
+                        <li>Objetivos específicos</li>
+                        <li>Capacidade de recuperação</li>
+                    </ul>
+                </div>
+                <button class="read-more">Ler mais</button>
+            </article>
+
+            <article class="article-card">
+                <h3>Nutrição Esportiva</h3>
+                <p>Um guia completo sobre alimentação para praticantes de musculação. Aprenda sobre macronutrientes, timing nutricional e suplementação básica.</p>
+                <div class="article-content hidden">
+                    <h4>Macronutrientes Essenciais</h4>
+                    <p>Uma dieta balanceada deve incluir:</p>
+                    <ul>
+                        <li><strong>Proteínas:</strong> 1.6-2.2g/kg de peso corporal</li>
+                        <li><strong>Carboidratos:</strong> 4-7g/kg de peso corporal</li>
+                        <li><strong>Gorduras:</strong> 20-35% das calorias totais</li>
+                    </ul>
+                    <h4>Timing Nutricional</h4>
+                    <p>Momentos cruciais para alimentação:</p>
+                    <ul>
+                        <li>Refeição pré-treino: 2-3 horas antes</li>
+                        <li>Refeição pós-treino: até 2 horas após</li>
+                        <li>Distribuição ao longo do dia</li>
+                    </ul>
+                </div>
+                <button class="read-more">Ler mais</button>
+            </article>
+
+            <article class="article-card">
+                <h3>Recuperação Muscular</h3>
+                <p>Técnicas e estratégias avançadas para otimizar sua recuperação e prevenir lesões. Aprenda sobre sono, nutrição e métodos de recuperação ativa.</p>
+                <div class="article-content hidden">
+                    <h4>Fatores Essenciais</h4>
+                    <p>Uma recuperação eficiente depende de:</p>
+                    <ul>
+                        <li><strong>Sono:</strong> 7-9 horas por noite</li>
+                        <li><strong>Hidratação:</strong> 35-45ml/kg de peso</li>
+                        <li><strong>Nutrição:</strong> Balanço calórico adequado</li>
+                    </ul>
+                    <h4>Métodos de Recuperação</h4>
+                    <p>Técnicas comprovadas incluem:</p>
+                    <ul>
+                        <li>Alongamento dinâmico</li>
+                        <li>Liberação miofascial</li>
+                        <li>Contraste térmico</li>
+                    </ul>
+                </div>
+                <button class="read-more">Ler mais</button>
+            </article>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>FitLife</h3>
+                <p>Excelência em resultados desde Março de 2025</p>
+            </div>
+            <div class="footer-section">
+                <h4>Navegação</h4>
+                <a href="#home">Início</a>
+                <a href="#dieta">Nutrição</a>
+                <a href="#suplementacao">Suplementação</a>
+                <a href="#calculadora">Calculadoras</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contato</h4>
+                <p><i class="fas fa-phone"></i> (11) 9999-9999</p>
+                <p><i class="fas fa-envelope"></i> contato@fitlife.com.br</p>
+                <p><i class="fas fa-map-marker-alt"></i> São Paulo, SP</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 FitLife. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    <!--arquivo javascript-->
+    <script src="assets/script.js"></script>
+</body>
+</html> 
