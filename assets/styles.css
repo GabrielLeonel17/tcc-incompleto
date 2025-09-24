@@ -1,10 +1,10 @@
 :root {
-    --primary-color: #006eff; /* Laranja vibrante */
+    --primary-color: #FF6B00; /* Laranja vibrante */
     --secondary-color: #000000; /* Preto */
-    --text-color: #000000; /* Preto suave para texto */
-    --white: #ffffff;
-    --light-gray: #e6e2e2;
-    --orange-hover: #006eff; /* Laranja mais claro para hover */
+    --text-color: #333333; /* Preto suave para texto */
+    --white: #FFFFFF;
+    --light-gray: #f8f8f8;
+    --orange-hover: #FF8533; /* Laranja mais claro para hover */
 }
 
 * {
